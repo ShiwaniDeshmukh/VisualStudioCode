@@ -100,6 +100,10 @@ In visual studio code, open the project and go to terminal.
 - **checkoutHelper.js**: Contains functions related to filling checkout information and completing the checkout process.
 - **loginHelper.js**: Contains functions related to logging in and handling login-related tasks.
 - **test/**: Folder containing the actual UI Automation test files.
+- **albumsTestAPI.js**: Contains tests related to the API functionality.
+- **commentsTestAPI.js**: Contains tests related to the API functionality.
+- **postsTestAPI.js**: Contains tests related to the API functionality.
+- **userTestAPI.js**: Contains tests related to the API functionality.
 - **cartTests.js**: Contains tests related to the cart functionality.
 - **checkoutTests.js**: Contains tests related to the checkout process.
 - **loginTests.js**: Contains tests related to the login functionality.
@@ -111,6 +115,10 @@ In visual studio code, open the project and go to terminal.
 - **mochawesome-report-api/**: Folder containing the actual API Automation test results reports.
 - **mochawesome.html**: Contains tests results related the actual API Automation from test folder.
 - **mochawesome.json**: Contains tests results related the actual API Automation from test folder.
+- **package.json**: Contains all the project configuration and dependencies related to the project.
+- **test-results.xml**: Contains tests results related the actual API Automation from test folder.
+- **Jenkinsfile**: Contains pipeline script for pipeline to follow to build CI/CD process.
+
 
 ## Running Tests
 
@@ -127,10 +135,10 @@ In visual studio code, open the project and go to terminal.
 - npx mocha --no-timeouts 'test/productDetailsTests.js'
 - npx mocha --no-timeouts 'test/cartTests.js'
 - npx mocha --no-timeouts 'test/checkoutTests.js'
-- npx mocha --no-timeouts 'test/checkoutTests.js'
-- npx mocha --no-timeouts 'test/checkoutTests.js'
-- npx mocha --no-timeouts 'test/checkoutTests.js'
-- npx mocha --no-timeouts 'test/checkoutTests.js'
+- npx mocha --no-timeouts 'test/albumsTestAPI.js'
+- npx mocha --no-timeouts 'test/commentsTestAPI.js'
+- npx mocha --no-timeouts 'test/postsTestAPI.js'
+- npx mocha --no-timeouts 'test/usersTestAPI.js'
 
 1. After running these commands, change the package.json file as below:
 {
@@ -143,11 +151,19 @@ In visual studio code, open the project and go to terminal.
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+ "dependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/node": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/register": "^7.22.5",
     "chai": "^4.3.7",
+    "lodash": "^4.17.21",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
-    "selenium-webdriver": "^4.10.0"
+    "selenium-webdriver": "^4.10.0",
+    "supertest": "^6.3.3"
   }
 }
 
@@ -166,10 +182,18 @@ And, run command "npm test" to run all the tests in sequence rather than running
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/node": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/register": "^7.22.5",
     "chai": "^4.3.7",
+    "lodash": "^4.17.21",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
-    "selenium-webdriver": "^4.10.0"
+    "selenium-webdriver": "^4.10.0",
+    "supertest": "^6.3.3"
   }
 }
 
@@ -189,16 +213,58 @@ And, run command "npm test" to run all the tests in parallel to save time.
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/node": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/register": "^7.22.5",
     "chai": "^4.3.7",
+    "lodash": "^4.17.21",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
-    "selenium-webdriver": "^4.10.0"
+    "selenium-webdriver": "^4.10.0",
+    "supertest": "^6.3.3"
   }
 }
 
 And, run command "npm test" to run all the tests in parallel and to create a directory named TestReports which will store the test results for all tests under file named TestResults using mochawesome.
 
 (Note: There should be no depedency between the tests)
+
+4. Run command npm run test-junit, to create mocha junit test results XML file with below package.json configuration.
+
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --no-timeouts --parallel",
+    "test-junit": "mocha --no-timeouts --reporter mocha-junit-reporter"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/node": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/register": "^7.22.5",
+    "chai": "^4.3.7",
+    "lodash": "^4.17.21",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "selenium-webdriver": "^4.10.0",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "mocha-junit-reporter": "^2.2.0"
+  }
+}
+
+
 
 ## CI/CD Implementation
 
