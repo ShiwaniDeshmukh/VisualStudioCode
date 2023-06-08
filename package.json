@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --no-timeouts --parallel --reporter mochawesome --require mochawesome/register --reporter-options reportDir=/Users/shiwanideshmukh/Automation/TestReports,reportFilename=TestResults"
+    "test": "mocha --no-timeouts --parallel"
   },
   "author": "",
   "license": "ISC",
