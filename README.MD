@@ -18,6 +18,10 @@ The purpose of these tests is to verify the functionality of the website's featu
 - Mochawesome : 7.1.3
 - Selenium Webdriver : 4.10.0
 - Jenkins : 2.401.1
+- SuperTest : 6.3.3
+- Lodash : 4.17.21
+- Babel : 7.22.1
+- Mocha JUnit Reporter : 2.2.0
 
 
 
@@ -41,6 +45,7 @@ Later, naviagte to the root directory project Selenium-Test on the terminal and 
 
 - npm init (to setup package.json file)
 - npm install selenium-webdriver
+- 
 
 After installation of Chrome Browser, Open Terminal on your system and add the following commands to add the path of your chrome driver and to check if it is present after adding:
 
@@ -76,15 +81,21 @@ In visual studio code, open the project and go to terminal.
 - npm install chai
 - npm install mocha
 - npm install mochawesome
+- npm install lodash
+- npm install supertest
+- npm install @babel/cli @babel/core @babel/node @babel/register @babel/preset-env @babel/plugin-transform-runtime
+- npm install mocha-junit-reporter
 
 ## Project Structure
 
-- **config.js**: Contains the configuration settings for the project, such as the application URL under the config folder.
+- **config.js**: Contains the configuration settings for the UI tests of project, such as the application URL under the config folder.
+- **apiConfig.js**: Contains the configuration settings for the API tests of project, such as the application URL under the config folder.
 
 - **data/**: Folder containing data files used in the tests.
 - **checkoutData.js**: Contains valid checkout data.
 - **userCredentials.js**: Contains valid and invalid user credentials.
 - **helpers/**: Folder containing helper functions used in the tests.
+- **apiHelper.js**: Contains functions related to POST, GET, PUT, and DELETE methods.
 - **cartHelper.js**: Contains functions related to adding items to the cart and managing the cart.
 - **checkoutHelper.js**: Contains functions related to filling checkout information and completing the checkout process.
 - **loginHelper.js**: Contains functions related to logging in and handling login-related tasks.
@@ -97,7 +108,9 @@ In visual studio code, open the project and go to terminal.
 - **TestReports/**: Folder containing the actual UI Automation test results reports.
 - **TestResults.html**: Contains tests results related the actual UI Automation from test folder.
 - **TestResults.json**: Contains tests results related the actual UI Automation from test folder.
-
+- **mochawesome-report-api/**: Folder containing the actual API Automation test results reports.
+- **mochawesome.html**: Contains tests results related the actual API Automation from test folder.
+- **mochawesome.json**: Contains tests results related the actual API Automation from test folder.
 
 ## Running Tests
 
@@ -113,6 +126,10 @@ In visual studio code, open the project and go to terminal.
 - npx mocha --no-timeouts 'test/sortingTests.js'
 - npx mocha --no-timeouts 'test/productDetailsTests.js'
 - npx mocha --no-timeouts 'test/cartTests.js'
+- npx mocha --no-timeouts 'test/checkoutTests.js'
+- npx mocha --no-timeouts 'test/checkoutTests.js'
+- npx mocha --no-timeouts 'test/checkoutTests.js'
+- npx mocha --no-timeouts 'test/checkoutTests.js'
 - npx mocha --no-timeouts 'test/checkoutTests.js'
 
 1. After running these commands, change the package.json file as below:
