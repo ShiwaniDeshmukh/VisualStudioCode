@@ -237,6 +237,7 @@ The UI Automation tests can be integrated into a CI/CD pipeline using Jenkins. T
 
    - Monitor the Jenkins console output and the pipeline's progress on the Jenkins dashboard.
    - The pipeline will perform the defined stages sequentially and execute your UI Automation tests.
+   - Also, go to configuration of pipeline and under "Build Triggers", click on the checkboc of Poll SCM to schedule your build trigger whenever any changes are made.
 
 
 ## Appendix
