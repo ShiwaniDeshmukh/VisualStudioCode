@@ -1,0 +1,597 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 9,
+    "passes": 9,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-06-08T07:16:43.107Z",
+    "end": "2023-06-08T07:17:41.423Z",
+    "duration": 58316,
+    "testsRegistered": 9,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "be12c5b0-3ce6-45e3-bd7e-6163932d4cfe",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b7e0867b-aa59-46cb-9ff1-60191a415804",
+          "title": "Login Tests",
+          "fullFile": "/Users/shiwanideshmukh/Automation/test/loginTests.js",
+          "file": "/test/loginTests.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Login Tests\"",
+              "fullTitle": "Login Tests \"before all\" hook in \"Login Tests\"",
+              "timedOut": null,
+              "duration": 9533,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Launch the Chrome browser driver\ndriver = await new Builder().forBrowser(\"chrome\").build();\n// Maximize the window\nawait driver.manage().window().maximize();",
+              "err": {},
+              "uuid": "d99d7056-8fee-4c1a-b299-73bda2f35b0c",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Login Tests\"",
+              "fullTitle": "Login Tests \"after all\" hook in \"Login Tests\"",
+              "timedOut": null,
+              "duration": 61,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Close the browser\nawait driver.quit();",
+              "err": {},
+              "uuid": "f650ff38-d696-49e0-815d-bc3ab4e46fd4",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should login successfully with valid credentials",
+              "fullTitle": "Login Tests should login successfully with valid credentials",
+              "timedOut": null,
+              "duration": 23300,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(config.appUrl);\n// Log in with valid credentials\nawait loginHelper.login(driver, data.validCredentials.username, data.validCredentials.password);\nconst pageTitle = await loginHelper.getPageTitle(driver);\nassert.strictEqual(pageTitle, \"Products\");\nconsole.log(\"Login test passed! Successfully logged in with valid credentials.\");",
+              "err": {},
+              "uuid": "c65a6263-d3c0-4f4a-9bd9-3a4d86c843a0",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should not login with invalid credentials",
+              "fullTitle": "Login Tests should not login with invalid credentials",
+              "timedOut": null,
+              "duration": 4036,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(config.appUrl);\n// Log in with invalid credentials\nawait loginHelper.login(driver, data.invalidCredentials.username, data.invalidCredentials.password);\nconst errorMessage = await loginHelper.getErrorMessage(driver);\nassert.strictEqual(errorMessage, \"Epic sadface: Username and password do not match any user in this service\");\nconsole.log(\"Login test passed! Invalid credentials were rejected.\");",
+              "err": {},
+              "uuid": "11bc0a96-a5a5-4b6a-b4f0-f1210b2c658d",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c65a6263-d3c0-4f4a-9bd9-3a4d86c843a0",
+            "11bc0a96-a5a5-4b6a-b4f0-f1210b2c658d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 27336,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        },
+        {
+          "uuid": "cade5b37-423f-4c53-94f2-9cd7c1f719ce",
+          "title": "Product Details Tests",
+          "fullFile": "/Users/shiwanideshmukh/Automation/test/productDetailsTests.js",
+          "file": "/test/productDetailsTests.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Product Details Tests\"",
+              "fullTitle": "Product Details Tests \"before all\" hook in \"Product Details Tests\"",
+              "timedOut": null,
+              "duration": 14380,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Launch the Chrome browser driver\ndriver = await new Builder().forBrowser(\"chrome\").build();\n// Maximize the window\nawait driver.manage().window().maximize();",
+              "err": {},
+              "uuid": "c7fefdc4-13c0-4a81-aa17-14b5ba732af7",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook in \"Product Details Tests\"",
+              "fullTitle": "Product Details Tests \"before each\" hook in \"Product Details Tests\"",
+              "timedOut": null,
+              "duration": 4851,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Navigate to the products page before each test case\nawait driver.get(config.appUrl);\n// Log in with valid credentials\nawait loginHelper.login(driver, data.validCredentials.username, data.validCredentials.password);\nawait new Promise((resolve) => setTimeout(resolve, 3000));",
+              "err": {},
+              "uuid": "6ff490e6-9774-4e64-9d80-e92db8eeca33",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Product Details Tests\"",
+              "fullTitle": "Product Details Tests \"after all\" hook in \"Product Details Tests\"",
+              "timedOut": null,
+              "duration": 56,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Close the browser\nawait driver.quit();",
+              "err": {},
+              "uuid": "f9db4dee-bbd9-4eac-8fd1-e40f9f76eaed",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should open the details of a product and assert the presence of key information",
+              "fullTitle": "Product Details Tests should open the details of a product and assert the presence of key information",
+              "timedOut": null,
+              "duration": 1665,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Opening the details of a product...\");\n// Click on a product\nawait driver.findElement(By.className(\"inventory_item_name\")).click();\n// Assert the presence of key information (name, description, image, price)\nconst productName = await driver.findElement(By.css(\".inventory_details_name\")).getText();\nconst productDescription = await driver.findElement(By.css(\".inventory_details_desc\")).getText();\nconst productImage = await driver.findElement(By.css(\".inventory_details_img\")).isDisplayed();\nconst productPrice = await driver.findElement(By.css(\".inventory_details_price\")).getText();\nassert.isNotEmpty(productName, \"Product name is not empty\");\nassert.isNotEmpty(productDescription, \"Product description is not empty\");\nassert.isTrue(productImage, \"Product image is displayed\");\nassert.isNotEmpty(productPrice, \"Product price is not empty\");\nconsole.log(\"Product details test passed! Key information is present.\");",
+              "err": {},
+              "uuid": "306ccfc3-d49a-48f2-8b0f-733d68fc15a1",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should click the 'Back to Products' button and assert the redirection to the products page",
+              "fullTitle": "Product Details Tests should click the 'Back to Products' button and assert the redirection to the products page",
+              "timedOut": null,
+              "duration": 1413,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Clicking the 'Back to Products' button...\");\n// Click on a product\nawait driver.findElement(By.className(\"inventory_item_name\")).click();\n// Assert the presence of key information (name, description, image, price)\nconst productName = await driver.findElement(By.css(\".inventory_details_name\")).getText();\nconst productImage = await driver.findElement(By.css(\".inventory_details_img\")).isDisplayed();\nconst productPrice = await driver.findElement(By.css(\".inventory_details_price\")).getText();\n// Click the 'Back to Products' button\nawait driver.findElement(By.id(\"back-to-products\")).click();\n// Get the current page URL\nconst currentUrl = await driver.getCurrentUrl();\n// Assert the redirection to the products page\nassert.strictEqual(currentUrl, `${config.appUrl}inventory.html`);\nconsole.log(\"Back to products test passed! Successfully redirected to the products page.\");",
+              "err": {},
+              "uuid": "bf60ab97-3808-4b6d-9eed-fd1204d9db69",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "306ccfc3-d49a-48f2-8b0f-733d68fc15a1",
+            "bf60ab97-3808-4b6d-9eed-fd1204d9db69"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3078,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        },
+        {
+          "uuid": "6ae77361-4a04-4410-b396-cb443fbb8f9f",
+          "title": "Sorting Tests",
+          "fullFile": "/Users/shiwanideshmukh/Automation/test/sortingTests.js",
+          "file": "/test/sortingTests.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Sorting Tests\"",
+              "fullTitle": "Sorting Tests \"before all\" hook in \"Sorting Tests\"",
+              "timedOut": null,
+              "duration": 9533,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Launch the Chrome browser driver\ndriver = await new Builder().forBrowser(\"chrome\").build();\n// Maximize the window\nawait driver.manage().window().maximize();",
+              "err": {},
+              "uuid": "35f32682-265c-4555-84ce-81a3dbec726e",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook in \"Sorting Tests\"",
+              "fullTitle": "Sorting Tests \"before each\" hook in \"Sorting Tests\"",
+              "timedOut": null,
+              "duration": 3326,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Navigate to the products page before each test case\nawait driver.get(config.appUrl);\nconsole.log(\"Logging in with valid credentials...\");\n// Log in with valid credentials\nawait loginHelper.login(driver, data.validCredentials.username, data.validCredentials.password);\nawait new Promise(resolve => setTimeout(resolve, 3000));",
+              "err": {},
+              "uuid": "ffe8b3dc-1030-42c8-bf28-73b916e5fef2",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Sorting Tests\"",
+              "fullTitle": "Sorting Tests \"after all\" hook in \"Sorting Tests\"",
+              "timedOut": null,
+              "duration": 58,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Close the browser\nawait driver.quit();",
+              "err": {},
+              "uuid": "e7a9cbbe-c74a-4f1d-ac71-13fe171d3ca6",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should sort products by name (Z to A) and assert the correct order",
+              "fullTitle": "Sorting Tests should sort products by name (Z to A) and assert the correct order",
+              "timedOut": null,
+              "duration": 2977,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Sorting products by name (Z to A)...\");\n// Click the sorting dropdown\nawait driver.findElement(By.css(\".product_sort_container\")).click();\n// Select \"Name (Z to A)\" option\nawait driver.findElement(By.css(\"option[value='za']\")).click();\n// Get the list of product names\nconst productElements = await driver.findElements(By.css(\".inventory_item_name\"));\nconst productNames = await Promise.all(productElements.map((element) => element.getText()));\n// Assert the correct order\nconst sortedProductNames = [...productNames].sort((a, b) => b.localeCompare(a));\nassert.deepStrictEqual(productNames, sortedProductNames);\nconsole.log(\"Sorting test passed! Products are sorted in the correct order.\");",
+              "err": {},
+              "uuid": "3b5e2960-9090-4db8-8f0b-c912ad694e10",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should sort products by price (low to high) and assert the correct order",
+              "fullTitle": "Sorting Tests should sort products by price (low to high) and assert the correct order",
+              "timedOut": null,
+              "duration": 1098,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Sorting products by price (low to high)...\");\n// Click the sorting dropdown\nawait driver.findElement(By.css(\".product_sort_container\")).click();\n// Select \"Price (low to high)\" option\nawait driver.findElement(By.css(\"option[value='lohi']\")).click();\n// Get the list of product prices\nconst productElements = await driver.findElements(By.css(\".inventory_item_price\"));\nconst productPrices = await Promise.all(productElements.map((element) => element.getText()));\n// Convert prices to numbers for comparison\nconst numericProductPrices = productPrices.map((price) => parseFloat(price.replace(\"$\", \"\")));\n// Assert the correct order\nconst sortedProductPrices = [...numericProductPrices].sort((a, b) => a - b);\nassert.deepStrictEqual(numericProductPrices, sortedProductPrices);\nconsole.log(\"Sorting test passed! Products are sorted in the correct order.\");",
+              "err": {},
+              "uuid": "72ff0523-0b6f-420e-9243-4280a2e09560",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should sort products by price (high to low) and assert the correct order",
+              "fullTitle": "Sorting Tests should sort products by price (high to low) and assert the correct order",
+              "timedOut": null,
+              "duration": 415,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Sorting products by price (high to low)...\");\n// Click the sorting dropdown\nawait driver.findElement(By.css(\".product_sort_container\")).click();\n// Select \"Price (high to low)\" option\nawait driver.findElement(By.css(\"option[value='hilo']\")).click();\n// Get the list of product prices\nconst productElements = await driver.findElements(By.css(\".inventory_item_price\"));\nconst productPrices = await Promise.all(productElements.map((element) => element.getText()));\n// Convert prices to numbers for comparison\nconst numericProductPrices = productPrices.map((price) => parseFloat(price.replace(\"$\", \"\")));\n// Assert the correct order\nconst sortedProductPrices = [...numericProductPrices].sort((a, b) => b - a);\nassert.deepStrictEqual(numericProductPrices, sortedProductPrices);\nconsole.log(\"Sorting test passed! Products are sorted in the correct order.\");",
+              "err": {},
+              "uuid": "dcba169d-ff06-45de-b9d8-405ebec8495d",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3b5e2960-9090-4db8-8f0b-c912ad694e10",
+            "72ff0523-0b6f-420e-9243-4280a2e09560",
+            "dcba169d-ff06-45de-b9d8-405ebec8495d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4490,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        },
+        {
+          "uuid": "0390f9ef-8de1-4be5-84f2-42096e158ebe",
+          "title": "Cart Tests",
+          "fullFile": "/Users/shiwanideshmukh/Automation/test/cartTests.js",
+          "file": "/test/cartTests.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Cart Tests\"",
+              "fullTitle": "Cart Tests \"before all\" hook in \"Cart Tests\"",
+              "timedOut": null,
+              "duration": 9530,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Launch the Chrome browser driver\ndriver = await new Builder().forBrowser(\"chrome\").build();\n// Maximize the window\nawait driver.manage().window().maximize();",
+              "err": {},
+              "uuid": "fb815472-6268-4835-86bc-22d53413addd",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook in \"Cart Tests\"",
+              "fullTitle": "Cart Tests \"before each\" hook in \"Cart Tests\"",
+              "timedOut": null,
+              "duration": 24839,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Navigate to the products page and log in before each test case\nawait driver.get(config.appUrl);\nawait loginHelper.login(driver, data.validCredentials.username, data.validCredentials.password);\nawait new Promise((resolve) => setTimeout(resolve, 3000));",
+              "err": {},
+              "uuid": "0ddd3c60-9051-459c-97ce-254c9c9ddc3a",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Cart Tests\"",
+              "fullTitle": "Cart Tests \"after all\" hook in \"Cart Tests\"",
+              "timedOut": null,
+              "duration": 2054,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Close the browser\nawait driver.quit();\nawait new Promise((resolve) => setTimeout(resolve, 2000));",
+              "err": {},
+              "uuid": "f1e8f0d3-348e-4bc5-b50c-d974b11ef66a",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should add multiple items to the cart, assert their presence, assert the correct count displayed on the shopping cart icon, and remove an item",
+              "fullTitle": "Cart Tests should add multiple items to the cart, assert their presence, assert the correct count displayed on the shopping cart icon, and remove an item",
+              "timedOut": null,
+              "duration": 19719,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Adding multiple items to the cart...\");\n// Add multiple items to the cart\nawait cartHelper.addToCart(driver, \"sauce-labs-backpack\"); // Add the first item\nawait cartHelper.addToCart(driver, \"sauce-labs-bike-light\"); // Add the second item\nawait cartHelper.addToCart(driver, \"sauce-labs-bolt-t-shirt\"); // Add the third item\n// Assert the count displayed on the shopping cart icon matches the actual item count\nconst cartIconItemCount = await cartHelper.getCartIconItemCount(driver);\nassert.strictEqual(cartIconItemCount, 3, \"Incorrect item count displayed on the shopping cart icon\");\nconsole.log(\"Multiple items were added to the shopping cart. Asserting the count and presence...\");\n// Navigate to the cart page\nawait cartHelper.navigateToCart(driver);\n// Assert the presence of added items on the cart page\nconst cartPageItems = await cartHelper.getCartItems(driver);\nassert.lengthOf(cartPageItems, 3, \"Incorrect number of items on the cart page\");\n// Remove an item from the cart\nawait cartHelper.removeItemFromCart(driver, \"sauce-labs-backpack\");\n// Click on Continue Shopping button to add one more item\nawait cartHelper.continueShopping(driver);\nawait cartHelper.addToCart(driver, \"sauce-labs-onesie\"); // Add the another item\n// Navigate to the cart page\nawait cartHelper.navigateToCart(driver);\n\n// Assert the item is no longer present in the cart\nconst updatedItems = await cartHelper.getCartItems(driver);\nassert.lengthOf(updatedItems, 3, \"Item was not removed from the cart\");\nconsole.log(\"Cart test passed! Multiple items were added to the shopping cart, count was asserted, and an item was removed.\");",
+              "err": {},
+              "uuid": "cf97fc2a-02a8-4708-a3a5-31cbd86b3b31",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cf97fc2a-02a8-4708-a3a5-31cbd86b3b31"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19719,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        },
+        {
+          "uuid": "23dbd2e5-e990-4e79-a1cb-d8c987259d17",
+          "title": "Checkout Tests",
+          "fullFile": "/Users/shiwanideshmukh/Automation/test/checkoutTests.js",
+          "file": "/test/checkoutTests.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Checkout Tests\"",
+              "fullTitle": "Checkout Tests \"before all\" hook in \"Checkout Tests\"",
+              "timedOut": null,
+              "duration": 9530,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Launch the Chrome browser driver\ndriver = await new Builder().forBrowser(\"chrome\").build();\n// Maximize the window\nawait driver.manage().window().maximize();",
+              "err": {},
+              "uuid": "23dd82da-b6da-446c-aad5-8b49b49bd828",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook in \"Checkout Tests\"",
+              "fullTitle": "Checkout Tests \"before each\" hook in \"Checkout Tests\"",
+              "timedOut": null,
+              "duration": 24308,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Navigate to the products page and log in before each test case\nawait driver.get(config.appUrl);\nawait loginHelper.login(driver, data.validCredentials.username, data.validCredentials.password);\nawait new Promise((resolve) => setTimeout(resolve, 3000));",
+              "err": {},
+              "uuid": "48ae0621-b2e3-4490-bcf3-556aff10f9de",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Checkout Tests\"",
+              "fullTitle": "Checkout Tests \"after all\" hook in \"Checkout Tests\"",
+              "timedOut": null,
+              "duration": 2058,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "// Close the browser\nawait driver.quit();\nawait new Promise((resolve) => setTimeout(resolve, 2000));",
+              "err": {},
+              "uuid": "eec06c60-5514-40c5-84db-92c35a57515b",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should complete the checkout process and display the 'Thank you for your order!' message",
+              "fullTitle": "Checkout Tests should complete the checkout process and display the 'Thank you for your order!' message",
+              "timedOut": null,
+              "duration": 22160,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Completing the checkout process...\");\n// Add an item to the cart\nawait cartHelper.addToCart(driver, \"sauce-labs-backpack\"); // Add the first item\nawait cartHelper.addToCart(driver, \"sauce-labs-bike-light\"); // Add the second item\n// Navigate to the cart page\nawait cartHelper.navigateToCart(driver);\n// Click on the checkout button\nawait checkoutHelper.startCheckout(driver);\nconsole.log(\"Filling in the checkout information...\");\n// Fill in the required information on the Checkout: Your Information page\nconst { firstName, lastName, zipCode } = checkoutData.validCheckoutData;\n//Intentionally added error to check the error scenario\nlet continueSuccess = false;\nwhile (!continueSuccess) {\n    // Click on the continue button\n    continueSuccess = await checkoutHelper.continueCheckout(driver);\n    if (!continueSuccess) {\n        // Go back to fill in the information\n        await checkoutHelper.fillCheckoutInformation(driver, firstName, lastName, zipCode);\n    }\n}\nconsole.log(\"Asserting the items and total price on the overview page...\");\n// Assert the items on the Checkout: overview page\nconst overviewItems = await checkoutHelper.getOverviewItems(driver);\nassert.lengthOf(overviewItems, 2, \"Incorrect number of items on the overview page\");\n// Assert the total price on the overview page\nconst totalPrice = await checkoutHelper.getOverviewTotalPrice(driver);\nassert.include(totalPrice, \"$43.18\", \"Incorrect total price on the overview page\");\n// Click on the finish button\nawait checkoutHelper.finishCheckout(driver);\nconsole.log(\"Checkout test passed! 'Thank you for your order!' message displayed.\");",
+              "err": {},
+              "uuid": "a6ce95c6-1352-46d3-87d0-6980b064dcb7",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a6ce95c6-1352-46d3-87d0-6980b064dcb7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22160,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "TestResults",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "/Users/shiwanideshmukh/Automation/TestReports",
+        "reportFilename": "TestResults"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
