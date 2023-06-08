@@ -17,6 +17,7 @@ The purpose of these tests is to verify the functionality of the website's featu
 - Mocha : 10.2.0
 - Mochawesome : 7.1.3
 - Selenium Webdriver : 4.10.0
+- Jenkins : 2.401.1
 
 
 
@@ -48,6 +49,12 @@ After installation of Chrome Browser, Open Terminal on your system and add the f
 - echo $PATH 
 (check if the path exists)
 
+To install Jenkins on macOS system, open your terminal and execute below commands to install and start jenkins service:
+
+- brew install jenkins-lts
+- brew services start jenkins-lts
+
+(Make sure to have Homebrew already installed on your system)
 
 ## Dependencies
 
@@ -90,6 +97,8 @@ In visual studio code, open the project and go to terminal.
 - **TestReports/**: Folder containing the actual UI Automation test results reports.
 - **TestResults.html**: Contains tests results related the actual UI Automation from test folder.
 - **TestResults.json**: Contains tests results related the actual UI Automation from test folder.
+
+
 ## Running Tests
 
 1. Clone the Selenium-Test project repository.
@@ -173,6 +182,63 @@ And, run command "npm test" to run all the tests in parallel to save time.
 And, run command "npm test" to run all the tests in parallel and to create a directory named TestReports which will store the test results for all tests under file named TestResults using mochawesome.
 
 (Note: There should be no depedency between the tests)
+
+## CI/CD Implementation
+
+The UI Automation tests can be integrated into a CI/CD pipeline using Jenkins. The pipeline can be configured to automatically trigger the tests whenever changes are pushed to the repository. Follow the steps below to set up the CI/CD pipeline:
+
+1. Install and configure Jenkins
+2. Run Jenkins on localhost
+3. Open Jenkins in your web browser and navigate to the dashboard.
+4. Click on "New Item" to create a new Jenkins pipeline.
+5. Enter a name for the pipeline (e.g., UI Automation) and select "Pipeline".
+6. Configure the pipeline script with the following:
+
+   pipeline {
+    agent any
+
+    tools {
+        nodejs "Node"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'master',
+                url: 'https://github.com/ShiwaniDeshmukh/VisualStudioCode.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Install dependencies
+                sh 'npm install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Execute the UI Automation tests
+                sh 'npm test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploy App'
+            }
+        }
+    }
+}
+
+7. Save the Jenkins pipeline configuration.
+8. On the Jenkins dashboard, locate your UI Automation pipeline and click on "Build Now" to trigger the pipeline execution.
+9. Monitor the CI/CD pipeline:
+
+   - Monitor the Jenkins console output and the pipeline's progress on the Jenkins dashboard.
+   - The pipeline will perform the defined stages sequentially and execute your UI Automation tests.
+
+
 ## Appendix
 
 The tests are configured to run on Chrome browser by default. 
